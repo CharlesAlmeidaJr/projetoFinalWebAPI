@@ -50,6 +50,13 @@ public class FuncionarioServiceImpl implements IFuncionarioService{
 			return null;
 		}
 		
+<<<<<<< HEAD
+=======
+		if (funcionario != null) {
+			return funcionario.isAtivo() ? funcionario : null;
+		}
+		return null;
+>>>>>>> 8d846c96a2fb4bd44db37f2d96047e152e7ca1b4
 	}
 
 }
