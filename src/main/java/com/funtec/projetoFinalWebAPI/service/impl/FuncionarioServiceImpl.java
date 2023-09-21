@@ -40,7 +40,7 @@ public class FuncionarioServiceImpl implements IFuncionarioService{
 		repository.deleteById(id);
 	}
 	
-	
+	@Override
 	public Funcionario login(LoginForm form) {
 		Funcionario funcionario = repository.login(form.getLogin(), form.getSenha());
 		

@@ -11,14 +11,8 @@ public interface IFuncionarioInternoService {
 
 	Funcionario create(FuncionarioInternoForm form);
 
-	Funcionario get(Long id);
-
 	Funcionario update(FuncionarioInternoUpdateForm form, Long id);
 
 	Set<Funcionario> getAll();
-
-	Set<Registro> getRegistrosById(Long id);
-
-	void delete(Long id);
 
 }

@@ -37,11 +37,6 @@ public class FuncionarioClienteServiceImpl implements IFuncionarioClienteService
 	}
 	
 	@Override
-	public Funcionario get(Long id) {
-		return repository.findById(id).get();
-	}
-	
-	@Override
 	public Funcionario update(FuncionarioClienteUpdateForm form, Long id) {
 		Funcionario funcionario = repository.findById(id).get();
 		funcionario.setNome(form.getNome());
@@ -66,18 +61,6 @@ public class FuncionarioClienteServiceImpl implements IFuncionarioClienteService
 //		return funcionarios;
 		
 		return new TreeSet<Funcionario>(repository.findAllFuncionarioCliente());
-	}
-	
-	@Override
-	public Set<Registro> getRegistrosById(Long id){
-		Funcionario funcionario = repository.findById(id).get();
-		
-		return new TreeSet<Registro>(funcionario.getRegistros());
-	}
-	
-	@Override
-	public void delete(Long id) {
-		repository.deleteById(id);
 	}
 
 }

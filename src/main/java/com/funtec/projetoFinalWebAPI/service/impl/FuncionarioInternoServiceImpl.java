@@ -5,6 +5,7 @@ import java.util.Set;
 import java.util.TreeSet;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.funtec.projetoFinalWebAPI.model.Funcionario;
 import com.funtec.projetoFinalWebAPI.model.FuncionarioInternoCargo;
@@ -14,6 +15,7 @@ import com.funtec.projetoFinalWebAPI.model.form.FuncionarioInternoUpdateForm;
 import com.funtec.projetoFinalWebAPI.repository.FuncionarioRepository;
 import com.funtec.projetoFinalWebAPI.service.IFuncionarioInternoService;
 
+@Service
 public class FuncionarioInternoServiceImpl implements IFuncionarioInternoService{
 	@Autowired
 	private FuncionarioRepository repository;
@@ -30,11 +32,6 @@ public class FuncionarioInternoServiceImpl implements IFuncionarioInternoService
 		funcionario.setAtivo(true);
 		
 		return repository.save(funcionario);
-	}
-	
-	@Override
-	public Funcionario get(Long id) {
-		return repository.findById(id).get();
 	}
 	
 	@Override
@@ -69,18 +66,6 @@ public class FuncionarioInternoServiceImpl implements IFuncionarioInternoService
 	public Set<Funcionario> getAllByCargo(String cargo){
 		FuncionarioInternoCargo funcionarioCargo = FuncionarioInternoCargo.valueOf(cargo);
 		return new TreeSet<Funcionario>(repository.findAllByCargo(cargo));
-	}
-	
-	@Override
-	public Set<Registro> getRegistrosById(Long id){
-		Funcionario funcionario = repository.findById(id).get();
-		
-		return funcionario.getRegistros();
-	}
-	
-	@Override
-	public void delete(Long id) {
-		repository.deleteById(id);
 	}
 
 }

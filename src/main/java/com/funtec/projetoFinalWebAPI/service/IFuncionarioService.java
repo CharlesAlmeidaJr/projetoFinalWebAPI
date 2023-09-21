@@ -4,6 +4,7 @@ import java.util.Set;
 
 import com.funtec.projetoFinalWebAPI.model.Funcionario;
 import com.funtec.projetoFinalWebAPI.model.Registro;
+import com.funtec.projetoFinalWebAPI.model.form.LoginForm;
 
 public interface IFuncionarioService {
 
@@ -14,5 +15,7 @@ public interface IFuncionarioService {
 	Set<Funcionario> getAll();
 
 	Set<Registro> getRegistrosById(Long id);
+
+	Funcionario login(LoginForm form);
 
 }
