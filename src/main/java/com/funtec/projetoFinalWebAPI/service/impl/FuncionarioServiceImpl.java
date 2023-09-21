@@ -43,11 +43,11 @@ public class FuncionarioServiceImpl implements IFuncionarioService{
 	@Override
 	public Funcionario login(LoginForm form) {
 		Funcionario funcionario = repository.login(form.getLogin(), form.getSenha());
-		
 		if (funcionario != null) {
 			return funcionario.isAtivo() ? funcionario : null;
 		}
-		return null;
+		else {
+			return null;
+		}
 	}
-
 }
