@@ -4,6 +4,7 @@ import java.util.Set;
 import java.util.TreeSet;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.funtec.projetoFinalWebAPI.model.Arquivo;
 import com.funtec.projetoFinalWebAPI.model.Registro;
@@ -15,6 +16,7 @@ import com.funtec.projetoFinalWebAPI.repository.FuncionarioRepository;
 import com.funtec.projetoFinalWebAPI.repository.RegistroRepository;
 import com.funtec.projetoFinalWebAPI.service.IRegistroService;
 
+@Service
 public class RegistroServiceImpl implements IRegistroService{ 
 
 	@Autowired

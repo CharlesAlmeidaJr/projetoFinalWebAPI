@@ -5,6 +5,7 @@ import java.util.Set;
 import java.util.TreeSet;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.funtec.projetoFinalWebAPI.model.Funcionario;
 import com.funtec.projetoFinalWebAPI.model.FuncionarioInternoCargo;
@@ -14,6 +15,7 @@ import com.funtec.projetoFinalWebAPI.model.form.FuncionarioInternoUpdateForm;
 import com.funtec.projetoFinalWebAPI.repository.FuncionarioRepository;
 import com.funtec.projetoFinalWebAPI.service.IFuncionarioInternoService;
 
+@Service
 public class FuncionarioInternoServiceImpl implements IFuncionarioInternoService{
 	@Autowired
 	private FuncionarioRepository repository;

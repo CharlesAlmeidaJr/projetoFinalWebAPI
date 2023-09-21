@@ -43,8 +43,13 @@ public class FuncionarioServiceImpl implements IFuncionarioService{
 	
 	public Funcionario login(LoginForm form) {
 		Funcionario funcionario = repository.login(form.getLogin(), form.getSenha());
+		if (funcionario != null) {
+			return funcionario.isAtivo() ? funcionario : null;
+		}
+		else {
+			return null;
+		}
 		
-		return funcionario.isAtivo() ? funcionario : null;
 	}
 
 }
