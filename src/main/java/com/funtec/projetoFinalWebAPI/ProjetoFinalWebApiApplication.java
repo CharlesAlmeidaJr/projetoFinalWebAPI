@@ -17,15 +17,19 @@ public class ProjetoFinalWebApiApplication {
 		
 		
 	}
-//	@Bean
-//	CommandLineRunner init (FuncionarioInternoServiceImpl service) {
-//		return args -> {
-//			FuncionarioInternoForm funcionario = new FuncionarioInternoForm();
-//			funcionario.setNome("Admin");
-//			funcionario.setLogin("admin");
-//			funcionario.setSenha("admin");
-//			funcionario.setCargo(FuncionarioInternoCargo.GERENCIA);
-//			service.create(funcionario);
-//		};
-//	}
+	
+	@Bean
+	CommandLineRunner init (FuncionarioInternoServiceImpl service) {
+		return args -> {
+			if(service.getAll().size() == 0) {
+				FuncionarioInternoForm funcionario = new FuncionarioInternoForm();
+				funcionario.setNome("Admin");
+				funcionario.setLogin("admin");
+				funcionario.setSenha("admin");
+				funcionario.setCargo(FuncionarioInternoCargo.GERENCIA);
+				service.create(funcionario);
+			}
+				
+		};
+	}
 }
