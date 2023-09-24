@@ -8,7 +8,7 @@ public interface IArquivoService {
 
 	Arquivo create(ArquivoForm form);
 
-	Arquivo update(ArquivoUpdateForm form);
+	Arquivo update(ArquivoUpdateForm form, Long id);
 
 	Arquivo get(Long id);
 

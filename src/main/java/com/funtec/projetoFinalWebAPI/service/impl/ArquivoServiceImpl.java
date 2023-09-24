@@ -34,7 +34,7 @@ public class ArquivoServiceImpl implements IArquivoService{
 	}
 	
 	@Override
-	public Arquivo update(ArquivoUpdateForm form) {
+	public Arquivo update(ArquivoUpdateForm form, Long id) {
 		Arquivo arquivo = new Arquivo();
 		arquivo.setNome(form.getNome());
 		arquivo.setCaminhoArquivo(form.getCaminhoArquivo());

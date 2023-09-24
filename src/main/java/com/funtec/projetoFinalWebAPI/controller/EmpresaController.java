@@ -3,6 +3,7 @@ package com.funtec.projetoFinalWebAPI.controller;
 import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -21,6 +22,7 @@ import com.funtec.projetoFinalWebAPI.model.form.EmpresaClienteUpdateForm;
 import com.funtec.projetoFinalWebAPI.service.impl.EmpresaClienteServiceImpl;
 
 @RestController
+@CrossOrigin
 @RequestMapping("/empresas")
 public class EmpresaController {
 	

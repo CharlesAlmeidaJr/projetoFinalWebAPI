@@ -3,6 +3,7 @@ package com.funtec.projetoFinalWebAPI.controller;
 import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -18,6 +19,7 @@ import com.funtec.projetoFinalWebAPI.model.form.FrotaUpdateForm;
 import com.funtec.projetoFinalWebAPI.service.impl.FrotaServiceImpl;
 
 @RestController
+@CrossOrigin
 @RequestMapping("/frotas")
 public class FrotaController {
 
