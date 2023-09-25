@@ -85,7 +85,7 @@ public class FuncionarioController {
 		return serviceInterno.getAllByCargo(cargo);
 	}
 	
-	@GetMapping("/registros/{id}")
+	@GetMapping("/{id}/registros")
 	public Set<Registro> getRegistros(@PathVariable(value = "id") Long id){
 		return service.getRegistrosById(id);
 	}

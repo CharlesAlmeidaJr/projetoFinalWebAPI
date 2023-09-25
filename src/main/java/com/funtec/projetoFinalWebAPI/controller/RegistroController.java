@@ -4,6 +4,7 @@ import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -46,7 +47,7 @@ public class RegistroController {
 		return registro.getAll();
 	}
 	
-	@GetMapping("/arquivos")
+	@GetMapping("/{id}/arquivos")
 	public Set<Arquivo> getAllArquivo(@PathVariable("id") Long id) {
 		return registro.getAllArquivo(id);
 	}
@@ -54,5 +55,10 @@ public class RegistroController {
 	@GetMapping("/{categoria}")
 	public Set<Registro> getAllByCategoria(@PathVariable("categoria") String categoria) {
 		return registro.getAllByCategoria(categoria);
+	}
+	
+	@DeleteMapping("/{id}")
+	public void delete(@PathVariable(value = "id") Long id) {
+		registro.delete(id);
 	}
 }
