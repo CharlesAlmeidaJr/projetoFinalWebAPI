@@ -44,7 +44,7 @@ public class FuncionarioController {
 	}
 	
 	@PostMapping("/cadastro/cliente")
-	public Funcionario createInterno(@RequestBody FuncionarioClienteForm form) {
+	public Funcionario createCliente(@RequestBody FuncionarioClienteForm form) {
 		
 		return serviceCliente.create(form);
 		
@@ -81,7 +81,7 @@ public class FuncionarioController {
 	}
 	
 	@GetMapping("/internos/{cargo}")
-	public Set<Funcionario> getAllInternos(@PathVariable(value = "cargo") String cargo) {
+	public Set<Funcionario> getAllInternosByCargo(@PathVariable(value = "cargo") String cargo) {
 		return serviceInterno.getAllByCargo(cargo);
 	}
 	
@@ -95,7 +95,7 @@ public class FuncionarioController {
 		service.delete(id);
 	}
 	
-	@GetMapping("/login")
+	@PostMapping("/login")
 	public Funcionario login(@RequestBody LoginForm login) {
 		return service.login(login);
 	}
