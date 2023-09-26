@@ -70,7 +70,7 @@ public class EmpresaController {
 	}
 	
 	@GetMapping("/{id}/registros/{categoria}")
-	public Set<Registro> getRegistros(@PathVariable(value = "id") Long id,@PathVariable(value = "categoria") String categoria){
+	public Set<Registro> getRegistrosByCategoria(@PathVariable(value = "id") Long id,@PathVariable(value = "categoria") String categoria){
 		return service.getAllResgistrosByCategoria(id, categoria);
 	}
 	
