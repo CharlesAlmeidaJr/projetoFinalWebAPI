@@ -47,6 +47,15 @@ public class FrotaServiceImpl implements IFrotaService{
 		Frota frota = repository.findById(id).get();
 		return new TreeSet<Registro>(frota.getRegistros());
 	}
+	
+	@Override
+	public Set<Registro> getAllRegistroByCategoria(Long id, String categoria) {
+		Set<Registro> registros = new TreeSet<Registro>();
+		for(Registro r : getAllRegistro(id)) {
+			if(r.getCategoria().name().equals(categoria)) registros.add(r);
+		}
+		return registros;
+	}
 
 	@Override
 	public void delete(Long id) {

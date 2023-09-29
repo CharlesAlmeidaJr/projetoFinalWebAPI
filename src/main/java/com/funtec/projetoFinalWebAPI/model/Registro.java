@@ -1,7 +1,7 @@
 package com.funtec.projetoFinalWebAPI.model;
 
 import java.time.LocalDateTime;
-import java.util.Set;
+import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -45,7 +45,7 @@ public class Registro implements Comparable<Registro>{
 	
 	@OneToMany(mappedBy = "registro", cascade = CascadeType.REMOVE, fetch = FetchType.LAZY)
 	@JsonIgnore
-	private Set<Arquivo> arquivos;
+	private List<Arquivo> arquivos;
 
 	@Override
 	public int compareTo(Registro o) {

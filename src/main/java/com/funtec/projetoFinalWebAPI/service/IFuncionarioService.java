@@ -18,4 +18,6 @@ public interface IFuncionarioService {
 
 	Funcionario login(LoginForm form);
 
+	Set<Registro> getRegistrosByCategoria(Long id, String categoria);
+
 }

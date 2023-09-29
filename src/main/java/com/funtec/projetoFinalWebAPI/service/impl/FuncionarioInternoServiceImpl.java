@@ -1,6 +1,5 @@
 package com.funtec.projetoFinalWebAPI.service.impl;
 
-import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
 
@@ -9,7 +8,6 @@ import org.springframework.stereotype.Service;
 
 import com.funtec.projetoFinalWebAPI.model.Funcionario;
 import com.funtec.projetoFinalWebAPI.model.FuncionarioInternoCargo;
-import com.funtec.projetoFinalWebAPI.model.Registro;
 import com.funtec.projetoFinalWebAPI.model.form.FuncionarioInternoForm;
 import com.funtec.projetoFinalWebAPI.model.form.FuncionarioInternoUpdateForm;
 import com.funtec.projetoFinalWebAPI.repository.FuncionarioRepository;
@@ -47,25 +45,14 @@ public class FuncionarioInternoServiceImpl implements IFuncionarioInternoService
 	}
 	
 	@Override
-	public Set<Funcionario> getAll(){
-		
-//		Set<Funcionario> funcionarios = new TreeSet<Funcionario>();
-//		
-//		for(Funcionario funcionario : repository.findAll()) {
-//			if(funcionario.getCargo() != null) {
-//				funcionarios.add(funcionario);
-//			}
-//		}
-//		
-//		return funcionarios;
-		
+	public Set<Funcionario> getAll(){		
 		return new TreeSet<Funcionario>(repository.findAllFuncionarioInterno());
 	}
 	
 	
 	public Set<Funcionario> getAllByCargo(String cargo){
 		FuncionarioInternoCargo funcionarioCargo = FuncionarioInternoCargo.valueOf(cargo);
-		return new TreeSet<Funcionario>(repository.findAllByCargo(cargo));
+		return new TreeSet<Funcionario>(repository.findAllByCargo(funcionarioCargo.name()));
 	}
 
 }

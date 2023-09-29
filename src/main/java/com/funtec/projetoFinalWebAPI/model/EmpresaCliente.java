@@ -1,6 +1,6 @@
 package com.funtec.projetoFinalWebAPI.model;
 
-import java.util.Set;
+import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -40,11 +40,11 @@ public class EmpresaCliente implements Comparable<EmpresaCliente>{
 	
 	@OneToMany(mappedBy = "empresa", cascade = CascadeType.REMOVE, fetch = FetchType.LAZY)
 	@JsonIgnore
-	private Set<Funcionario> funcionarios;
+	private List<Funcionario> funcionarios;
 	
 	@OneToMany(mappedBy = "empresa", cascade = CascadeType.REMOVE, fetch = FetchType.LAZY)
 	@JsonIgnore
-	private Set<Frota> frotas;
+	private List<Frota> frotas;
 
 	@Override
 	public int compareTo(EmpresaCliente o) {

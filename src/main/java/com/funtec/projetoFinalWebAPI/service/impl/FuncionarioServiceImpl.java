@@ -32,7 +32,17 @@ public class FuncionarioServiceImpl implements IFuncionarioService{
 	public Set<Registro> getRegistrosById(Long id){
 		Funcionario funcionario = repository.findById(id).get();
 		
-		return funcionario.getRegistros();
+		return new TreeSet<Registro>(funcionario.getRegistros());
+	}
+	
+	@Override
+	public Set<Registro> getRegistrosByCategoria(Long id, String categoria){
+		Set<Registro> registros = new TreeSet<Registro>();
+		for(Registro registro : getRegistrosById(id)) {
+			if(registro.getCategoria().name().equals(categoria)) registros.add(registro);
+		}
+		
+		return registros;
 	}
 	
 	@Override

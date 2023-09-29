@@ -11,7 +11,6 @@ import com.funtec.projetoFinalWebAPI.model.EstadosBrasileiros;
 import com.funtec.projetoFinalWebAPI.model.Frota;
 import com.funtec.projetoFinalWebAPI.model.Funcionario;
 import com.funtec.projetoFinalWebAPI.model.Registro;
-import com.funtec.projetoFinalWebAPI.model.RegistroCategoria;
 import com.funtec.projetoFinalWebAPI.model.form.EmpresaClienteForm;
 import com.funtec.projetoFinalWebAPI.model.form.EmpresaClienteUpdateForm;
 import com.funtec.projetoFinalWebAPI.repository.EmpresaClienteRepository;
@@ -22,6 +21,8 @@ public class EmpresaClienteServiceImpl implements IEmpresaClienteService{
 	
 	@Autowired
 	EmpresaClienteRepository repository;
+	@Autowired
+	FrotaServiceImpl frotaService;
 
 	@Override
 	public EmpresaCliente create(EmpresaClienteForm form) {
@@ -74,20 +75,18 @@ public class EmpresaClienteServiceImpl implements IEmpresaClienteService{
 	
 	@Override
 	public Set<Registro> getAllResgistros(Long id){
-//		Set<Registro> registros = new TreeSet<Registro>();
-//		
-//		for(Frota frota : getAllFrotas(id)) {
-//			registros.addAll(frota.getRegistros());
-//		}
-//		
-//		return registros;
-		
-		return new TreeSet<Registro>(repository.findAllRegistro(id));
+		Set<Registro> registros = new TreeSet<Registro>();
+		for(Frota frota : getAllFrotas(id)) registros.addAll(frota.getRegistros());
+		return registros;
 	}
 	
 	
 	public Set<Registro> getAllResgistrosByCategoria(Long id, String categoria){
-		return new TreeSet<Registro>(repository.findAllRegistroByCategoria(id, categoria));
+		Set<Registro> registros = new TreeSet<Registro>();
+		
+		for(Frota frota : getAllFrotas(id))	registros.addAll(frotaService.getAllRegistroByCategoria(frota.getId(), categoria));
+		
+		return registros;
 	}
 
 	@Override

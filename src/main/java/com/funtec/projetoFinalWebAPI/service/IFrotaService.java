@@ -18,4 +18,6 @@ public interface IFrotaService {
 	Set<Registro> getAllRegistro (Long id);
 	
 	void delete (Long id);
+
+	Set<Registro> getAllRegistroByCategoria(Long id, String categoria);
 }

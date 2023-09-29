@@ -1,6 +1,6 @@
 package com.funtec.projetoFinalWebAPI.model;
 
-import java.util.Set;
+import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -33,7 +33,7 @@ public class Frota implements Comparable<Frota>{
 	
 	@OneToMany(mappedBy = "frota", cascade = CascadeType.REMOVE, fetch = FetchType.LAZY)
 	@JsonIgnore
-	private Set<Registro> registros;
+	private List<Registro> registros;
 
 	@Override
 	public int compareTo(Frota o) {

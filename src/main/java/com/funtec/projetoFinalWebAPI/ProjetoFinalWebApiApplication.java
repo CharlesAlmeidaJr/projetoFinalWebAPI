@@ -20,7 +20,7 @@ public class ProjetoFinalWebApiApplication {
 	
 	@Bean
 	CommandLineRunner init (FuncionarioInternoServiceImpl service) {
-		return args -> {
+		return args -> {	
 			if(service.getAll().size() == 0) {
 				FuncionarioInternoForm funcionario = new FuncionarioInternoForm();
 				funcionario.setNome("Admin");

@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.funtec.projetoFinalWebAPI.model.Funcionario;
-import com.funtec.projetoFinalWebAPI.model.Registro;
 import com.funtec.projetoFinalWebAPI.model.form.FuncionarioClienteForm;
 import com.funtec.projetoFinalWebAPI.model.form.FuncionarioClienteUpdateForm;
 import com.funtec.projetoFinalWebAPI.repository.EmpresaClienteRepository;
@@ -49,17 +48,6 @@ public class FuncionarioClienteServiceImpl implements IFuncionarioClienteService
 	
 	@Override
 	public Set<Funcionario> getAll(){
-		
-//		Set<Funcionario> funcionarios = new TreeSet<Funcionario>();
-//		
-//		for(Funcionario funcionario : repository.findAll()) {
-//			if(funcionario.getEmpresa() != null) {
-//				funcionarios.add(funcionario);
-//			}
-//		}
-//		
-//		return funcionarios;
-		
 		return new TreeSet<Funcionario>(repository.findAllFuncionarioCliente());
 	}
 

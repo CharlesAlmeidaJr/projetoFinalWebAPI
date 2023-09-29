@@ -30,20 +30,12 @@ public enum EstadosBrasileiros {
 	SERGIPE("SE", "Sergipe"),
 	TOCANTINS("TO", "Tocantins");
 	
-	private String sigla;
-	private String estado;
+	public String sigla;
+	public String estado;
 	
 	private EstadosBrasileiros(String sigla, String estado) {
 		this.sigla = sigla;
 		this.estado = estado;
-	}
-	
-	public String getSigla() {
-		return sigla;
-	}
-	
-	public String getEstado() {
-		return estado;
 	}
 
 }

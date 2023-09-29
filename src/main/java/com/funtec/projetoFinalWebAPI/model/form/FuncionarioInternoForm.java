@@ -2,6 +2,7 @@ package com.funtec.projetoFinalWebAPI.model.form;
 
 import com.funtec.projetoFinalWebAPI.model.FuncionarioInternoCargo;
 
+import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
@@ -18,7 +19,7 @@ public class FuncionarioInternoForm {
 	private String login;
 	@NotEmpty(message = "Preencha o campo corretamente.")
 	private String senha;
-	//@Email(message = "'${validatedValue}' é inválido!")
+	@Email(message = "'${validatedValue}' é inválido!")
 	@NotEmpty(message = "Preencha o campo corretamente.")
 	private String email;
 	@NotEmpty(message = "Preencha o campo corretamente.")

@@ -1,6 +1,7 @@
 package com.funtec.projetoFinalWebAPI.controller;
 
 import java.util.Set;
+import java.util.TreeSet;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.funtec.projetoFinalWebAPI.model.EmpresaCliente;
+import com.funtec.projetoFinalWebAPI.model.EstadosBrasileiros;
 import com.funtec.projetoFinalWebAPI.model.Frota;
 import com.funtec.projetoFinalWebAPI.model.Funcionario;
 import com.funtec.projetoFinalWebAPI.model.Registro;
@@ -39,7 +41,7 @@ public class EmpresaController {
 		return service.get(id);
 	}
 	
-	@PutMapping("/{id}")
+	@PutMapping("/update/{id}")
 	public EmpresaCliente update(@PathVariable(value = "id") Long id, @RequestBody EmpresaClienteUpdateForm form) {
 		return service.update(form, id);
 	}
@@ -49,9 +51,16 @@ public class EmpresaController {
 		return service.getAll();
 	}
 	
-	@GetMapping("/{estado}")
+	@GetMapping("/estados/{estado}")
 	public Set<EmpresaCliente> getAllByEstado(@PathVariable(value = "estado") String estado){
 		return service.getAllByEstado(estado);
+	}
+	
+	@GetMapping("/estados")
+	public Set<EstadosBrasileiros> getAllEstado(){
+		Set<EstadosBrasileiros> estados = new TreeSet<EstadosBrasileiros>();
+		for(EstadosBrasileiros estado : EstadosBrasileiros.values()) estados.add(estado);
+		return estados;
 	}
 	
 	@GetMapping("/{id}/funcionarios")
@@ -74,7 +83,7 @@ public class EmpresaController {
 		return service.getAllResgistrosByCategoria(id, categoria);
 	}
 	
-	@DeleteMapping("/{id}")
+	@DeleteMapping("/delete/{id}")
 	public void delete(@PathVariable(value = "id") Long id) {
 		service.delete(id);
 	}

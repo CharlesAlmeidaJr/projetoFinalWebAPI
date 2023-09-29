@@ -37,7 +37,7 @@ public class FrotaController {
 		return frota.get(id);
 	}
 	
-	@PutMapping("/{id}")
+	@PutMapping("/update/{id}")
 	public Frota update(@PathVariable("id") Long id, @RequestBody FrotaUpdateForm form) {
 		return frota.update(form, id);
 	}
@@ -47,7 +47,12 @@ public class FrotaController {
 		return frota.getAllRegistro(id);
 	}
 	
-	@DeleteMapping("/{id}")
+	@GetMapping("/{id}/registros/{categoria}")
+	public Set<Registro> getRegistrosByCategoria(@PathVariable(value = "id") Long id,@PathVariable(value = "categoria") String categoria){
+		return frota.getAllRegistroByCategoria(id, categoria);
+	}
+	
+	@DeleteMapping("/delete/{id}")
 	public void delete(@PathVariable(value = "id") Long id) {
 		frota.delete(id);
 	}

@@ -1,6 +1,7 @@
 package com.funtec.projetoFinalWebAPI.controller;
 
 import java.util.Set;
+import java.util.TreeSet;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.funtec.projetoFinalWebAPI.model.Funcionario;
+import com.funtec.projetoFinalWebAPI.model.FuncionarioInternoCargo;
 import com.funtec.projetoFinalWebAPI.model.Registro;
 import com.funtec.projetoFinalWebAPI.model.form.FuncionarioClienteForm;
 import com.funtec.projetoFinalWebAPI.model.form.FuncionarioClienteUpdateForm;
@@ -85,12 +87,24 @@ public class FuncionarioController {
 		return serviceInterno.getAllByCargo(cargo);
 	}
 	
+	@GetMapping("/cargos")
+	public Set<FuncionarioInternoCargo> getAllCargo() {
+		Set<FuncionarioInternoCargo> cargos = new TreeSet<FuncionarioInternoCargo>();
+		for(FuncionarioInternoCargo cargo : FuncionarioInternoCargo.values()) cargos.add(cargo);
+		return cargos;
+	}
+	
 	@GetMapping("/{id}/registros")
 	public Set<Registro> getRegistros(@PathVariable(value = "id") Long id){
 		return service.getRegistrosById(id);
 	}
 	
-	@DeleteMapping("/{id}")
+	@GetMapping("/{id}/registros/{categoria}")
+	public Set<Registro> getRegistrosByCategoria(@PathVariable(value = "id") Long id,@PathVariable(value = "categoria") String categoria){
+		return service.getRegistrosByCategoria(id, categoria);
+	}
+	
+	@DeleteMapping("/delete/{id}")
 	public void delete(@PathVariable(value = "id") Long id) {
 		service.delete(id);
 	}

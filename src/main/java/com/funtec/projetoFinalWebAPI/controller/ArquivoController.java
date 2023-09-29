@@ -35,12 +35,12 @@ public class ArquivoController {
 		return arquivo.get(id);
 	}
 	
-	@PutMapping ("/{id}") 
+	@PutMapping ("/update/{id}") 
 	public Arquivo update(@PathVariable("id") Long id, @RequestBody ArquivoUpdateForm form ) {
 		return arquivo.update(form, id);
 	}
 	
-	@DeleteMapping("/{id}")
+	@DeleteMapping("delete/{id}")
 	public void delete(@PathVariable(value = "id") Long id) {
 		arquivo.delete(id);
 	}

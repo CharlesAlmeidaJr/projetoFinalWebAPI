@@ -6,14 +6,10 @@ public enum RegistroCategoria {
 	PROBLEMA_ENCONTRADO("problema encontrado"),
 	PROBLEMA_SOLUCIONADO("problema solucionado");
 	
-	private String value;
+	public String value;
 	
 	private RegistroCategoria(String value) {
 		this.value = value;
-	}
-	
-	public String getCategoria() {
-		return value;
 	}
 
 }

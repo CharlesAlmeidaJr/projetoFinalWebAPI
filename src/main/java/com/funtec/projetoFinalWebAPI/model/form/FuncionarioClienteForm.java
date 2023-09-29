@@ -17,7 +17,7 @@ public class FuncionarioClienteForm {
 	private String login;
 	@NotEmpty(message = "Preencha o campo corretamente.")
 	private String senha;
-	//@Email(message = "'${validatedValue}' é inválido!")
+	@Email(message = "'${validatedValue}' é inválido!")
 	@NotEmpty(message = "Preencha o campo corretamente.")
 	private String email;
 	private Long idEmpresa;
