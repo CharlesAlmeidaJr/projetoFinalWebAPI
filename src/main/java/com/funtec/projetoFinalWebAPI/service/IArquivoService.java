@@ -1,14 +1,18 @@
 package com.funtec.projetoFinalWebAPI.service;
 
+import java.io.IOException;
+
+import org.springframework.web.multipart.MultipartFile;
+
 import com.funtec.projetoFinalWebAPI.model.Arquivo;
 import com.funtec.projetoFinalWebAPI.model.form.ArquivoForm;
 import com.funtec.projetoFinalWebAPI.model.form.ArquivoUpdateForm;
 
 public interface IArquivoService {
 
-	Arquivo create(ArquivoForm form);
+	Arquivo create(MultipartFile file, Long idRegistro) throws IOException;
 
-	Arquivo update(ArquivoUpdateForm form, Long id);
+//	Arquivo update(ArquivoUpdateForm form, Long id);
 
 	Arquivo get(Long id);
 

@@ -1,7 +1,11 @@
 package com.funtec.projetoFinalWebAPI.service.impl;
 
+import java.io.IOException;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.util.StringUtils;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.funtec.projetoFinalWebAPI.model.Arquivo;
 import com.funtec.projetoFinalWebAPI.model.form.ArquivoForm;
@@ -19,11 +23,13 @@ public class ArquivoServiceImpl implements IArquivoService{
 	RegistroRepository registroRepository;
 	
 	@Override
-	public Arquivo create(ArquivoForm form) {
+	public Arquivo create(MultipartFile file, Long idRegistro) throws IOException {
+		String fileName = StringUtils.cleanPath(file.getOriginalFilename());				
 		Arquivo arquivo = new Arquivo();
-		arquivo.setNome(form.getNome());
-		arquivo.setCaminhoArquivo(form.getCaminhoArquivo());
-		arquivo.setRegistro(registroRepository.findById(form.getId_registro()).get());
+		arquivo.setNome(fileName);
+		arquivo.setTipo(file.getContentType());
+		arquivo.setData(file.getBytes());
+		arquivo.setRegistro(registroRepository.findById(idRegistro).get());
 		
 		return repository.save(arquivo);
 	}
@@ -33,14 +39,14 @@ public class ArquivoServiceImpl implements IArquivoService{
 		return repository.findById(id).get();
 	}
 	
-	@Override
-	public Arquivo update(ArquivoUpdateForm form, Long id) {
-		Arquivo arquivo = new Arquivo();
-		arquivo.setNome(form.getNome());
-		arquivo.setCaminhoArquivo(form.getCaminhoArquivo());
-		
-		return repository.save(arquivo);
-	}
+//	@Override
+//	public Arquivo update(ArquivoUpdateForm form, Long id) {
+//		Arquivo arquivo = new Arquivo();
+//		arquivo.setNome(form.getNome());
+//		arquivo.setCaminhoArquivo(form.getCaminhoArquivo());
+//		
+//		return repository.save(arquivo);
+//	}
 	
 	@Override
 	public void delete(Long id) {

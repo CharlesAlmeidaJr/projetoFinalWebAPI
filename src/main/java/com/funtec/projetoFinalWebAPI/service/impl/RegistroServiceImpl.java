@@ -2,6 +2,7 @@ package com.funtec.projetoFinalWebAPI.service.impl;
 
 import java.util.Set;
 import java.util.TreeSet;
+import java.util.stream.Stream;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -63,9 +64,9 @@ public class RegistroServiceImpl implements IRegistroService{
 	}
 
 	@Override
-	public Set<Arquivo> getAllArquivo(Long id) {
+	public Stream<Arquivo> getAllArquivo(Long id) {
 		Registro registro = repository.findById(id).get();
-		return new TreeSet<Arquivo>(registro.getArquivos());
+		return new TreeSet<Arquivo>(registro.getArquivos()).stream();
 	}
 
 	@Override

@@ -5,6 +5,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.Lob;
 import jakarta.persistence.ManyToOne;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -18,7 +19,10 @@ public class Arquivo implements Comparable<Arquivo>{
 	@Id@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String nome;
-	private String caminhoArquivo;
+	private String tipo;
+	@Lob
+	private byte[] data;
+	
 	@ManyToOne
 	@JoinColumn(name = "registro_id")
 	private Registro registro;

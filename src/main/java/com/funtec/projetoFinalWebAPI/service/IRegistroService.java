@@ -1,6 +1,7 @@
 package com.funtec.projetoFinalWebAPI.service;
 
 import java.util.Set;
+import java.util.stream.Stream;
 
 import com.funtec.projetoFinalWebAPI.model.Arquivo;
 import com.funtec.projetoFinalWebAPI.model.Registro;
@@ -17,7 +18,7 @@ public interface IRegistroService {
 	
 	Set<Registro> getAll();
 	
-	Set<Arquivo> getAllArquivo (Long id);
+	Stream<Arquivo> getAllArquivo (Long id);
 	
 	void delete (Long id);
 

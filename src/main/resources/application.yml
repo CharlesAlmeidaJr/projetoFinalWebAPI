@@ -9,8 +9,13 @@ spring:
     show-sql: true
     hibernate:
       ddl-auto: update
-    properties:
-      hibernate.format_sql: true
+    properties.hibernate:
+      format_sql: true
+      jdbc.lob.non_contextual_creation: true
+      dialect: org.hibernate.dialect.PostgreSQLDialect
+  servlet.multipart:
+   max-file-size: 2MB
+   max-request-size: 2MB
 
 logging:
   level:
