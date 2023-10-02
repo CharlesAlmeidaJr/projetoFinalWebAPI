@@ -43,13 +43,13 @@ public class Registro implements Comparable<Registro>{
 	@Enumerated(EnumType.STRING)
 	private RegistroCategoria categoria;
 	
-	@OneToMany(mappedBy = "registro", cascade = CascadeType.REMOVE, fetch = FetchType.LAZY)
+	@OneToMany(mappedBy = "registro", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
 	@JsonIgnore
 	private List<Arquivo> arquivos;
 
 	@Override
 	public int compareTo(Registro o) {
-		return dataResgistro.compareTo(o.getDataResgistro());
+		return (-1)*dataResgistro.compareTo(o.getDataResgistro());
 	}
 
 }

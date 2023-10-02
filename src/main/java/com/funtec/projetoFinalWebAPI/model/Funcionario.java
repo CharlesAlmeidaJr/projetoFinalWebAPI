@@ -40,7 +40,7 @@ public class Funcionario implements Comparable<Funcionario>{
 	private EmpresaCliente empresa;
 	private boolean ativo;
 	
-	@OneToMany(mappedBy = "funcionario", cascade = CascadeType.REMOVE, fetch = FetchType.LAZY)
+	@OneToMany(mappedBy = "funcionario", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
 	@JsonIgnore
 	List<Registro> registros;
 

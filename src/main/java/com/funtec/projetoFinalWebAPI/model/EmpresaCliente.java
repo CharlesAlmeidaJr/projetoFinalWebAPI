@@ -38,11 +38,11 @@ public class EmpresaCliente implements Comparable<EmpresaCliente>{
 	@Enumerated(EnumType.STRING)
 	private EstadosBrasileiros estado;
 	
-	@OneToMany(mappedBy = "empresa", cascade = CascadeType.REMOVE, fetch = FetchType.LAZY)
+	@OneToMany(mappedBy = "empresa", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
 	@JsonIgnore
 	private List<Funcionario> funcionarios;
 	
-	@OneToMany(mappedBy = "empresa", cascade = CascadeType.REMOVE, fetch = FetchType.LAZY)
+	@OneToMany(mappedBy = "empresa", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
 	@JsonIgnore
 	private List<Frota> frotas;
 

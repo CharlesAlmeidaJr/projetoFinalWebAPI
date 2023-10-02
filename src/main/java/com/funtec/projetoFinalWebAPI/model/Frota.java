@@ -31,7 +31,7 @@ public class Frota implements Comparable<Frota>{
 	@JoinColumn(name = "empresa_id")
 	private EmpresaCliente empresa;
 	
-	@OneToMany(mappedBy = "frota", cascade = CascadeType.REMOVE, fetch = FetchType.LAZY)
+	@OneToMany(mappedBy = "frota", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
 	@JsonIgnore
 	private List<Registro> registros;
 
